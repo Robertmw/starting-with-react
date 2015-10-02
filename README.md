@@ -2,6 +2,11 @@
 
 React + ES6 = <3
 
+## How to install
+
+- npm install
+- bower install
+- grunt
 
 #### I want to discover
 
