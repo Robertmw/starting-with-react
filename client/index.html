@@ -1,11 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<script src="libs/react/react.js"></script>
-	<script src="libs/react/JSXTransformer.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="build/css/style.min.css">
 </head>
 <body>
-	<div id="app"></div>
+	<div id="app">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h1>Example page</h1>
+				</div>
+				<input type="text" class="form-control input-lg" placeholder="Enter text">
+				<br>
+				<button type="button" class="btn btn-danger btn-lg pull-left">Reset</button>
+				<button type="button" class="btn btn-success btn-lg pull-right">Submit</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h3>Results</h3>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">Cras justo odio</li>
+					<li class="list-group-item">Dapibus ac facilisis in</li>
+					<li class="list-group-item">Morbi leo risus</li>
+					<li class="list-group-item">Porta ac consectetur ac</li>
+					<li class="list-group-item">Vestibulum at eros</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class="page-header">
+					<h3>Initial list (won't update)</h3>
+				</div>
+				<ul class="list-group">
+					<li class="list-group-item">Cras justo odio</li>
+					<li class="list-group-item">Dapibus ac facilisis in</li>
+					<li class="list-group-item">Morbi leo risus</li>
+					<li class="list-group-item">Porta ac consectetur ac</li>
+					<li class="list-group-item">Vestibulum at eros</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 	<script src="build/app.js"></script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 React + ES6 = <3
 
 
-# I want to discover
+#### I want to discover
 
 - How to organize files
 - Differences between PROPS vs STATE
