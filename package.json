@@ -11,10 +11,12 @@
     "type": "git",
     "url": "https://github.com/Robertmw/starting-with-react.git"
   },
-  "license": "GNU GENERAL PUBLIC LICENSE",
+  "license": "GNU",
   "dependencies": {
     "flux": "^2.1.1",
-    "react": "~0.13.3"
+    "object-assign": "^4.0.1",
+    "react": "~0.13.3",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babelify": "^6.3.0",
