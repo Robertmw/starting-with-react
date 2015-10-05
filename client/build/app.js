@@ -17,13 +17,6 @@ var AppActions = {
 		AppDispatcher.handleAction({
 			actionType: AppConstants.APP_CLEAR
 		});
-	},
-
-	fetchData: function fetchData(data) {
-		AppDispatcher.handleAction({
-			actionType: AppConstants.APP_FETCHDATA,
-			data: data
-		});
 	}
 
 };
@@ -151,6 +144,8 @@ var Formular = (function (_React$Component) {
 	Formular.prototype.addNewItem = function addNewItem() {
 		var newElement = _react2['default'].findDOMNode(this.refs.itemValue).value;
 		_actionsAppActions2['default'].addItem(newElement);
+
+		_react2['default'].findDOMNode(this.refs.itemValue).value = '';
 	};
 
 	Formular.prototype.clearItems = function clearItems() {
@@ -337,7 +332,10 @@ var _ = require('underscore');
 var _items = ['Cras justo odio', 'Dapibus ac facilisis in', 'Morbi leo risus', 'Porta ac consectetur ac', 'Vestibulum at eros'];
 
 function add(element) {
-	_items.push(element);
+	if (element) {
+		_items.push(element);
+		_items = _.uniq(_items);
+	}
 }
 
 function reset() {

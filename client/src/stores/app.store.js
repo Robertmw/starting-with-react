@@ -13,7 +13,10 @@ var _items = [
 ];
 
 function add (element) {
-	_items.push(element);
+	if (element) {
+		_items.push(element);
+		_items = _.uniq(_items);
+	}
 }
 
 function reset () {

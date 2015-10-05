@@ -11,6 +11,8 @@ class Formular extends React.Component {
 	addNewItem () {
 		var newElement = React.findDOMNode(this.refs.itemValue).value;
 		AppActions.addItem(newElement);
+
+		React.findDOMNode(this.refs.itemValue).value = '';
 	}
 
 	clearItems () {

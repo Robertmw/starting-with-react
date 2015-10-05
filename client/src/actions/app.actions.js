@@ -14,13 +14,6 @@ var AppActions = {
 		AppDispatcher.handleAction({
 			actionType: AppConstants.APP_CLEAR
 		})
-	},
-
-	fetchData: function(data) {
-		AppDispatcher.handleAction({
-			actionType: AppConstants.APP_FETCHDATA,
-			data: data
-		})
 	}
 
 };
