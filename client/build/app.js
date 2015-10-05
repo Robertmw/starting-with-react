@@ -17,6 +17,13 @@ var AppActions = {
 		AppDispatcher.handleAction({
 			actionType: AppConstants.APP_CLEAR
 		});
+	},
+
+	fetchData: function fetchData(data) {
+		AppDispatcher.handleAction({
+			actionType: AppConstants.APP_FETCHDATA,
+			data: data
+		});
 	}
 
 };
@@ -44,6 +51,12 @@ var _storesAppStore = require('./stores/app.store');
 
 var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
+function getAppState() {
+	return {
+		elements: _storesAppStore2['default'].getElements()
+	};
+}
+
 var App = (function (_React$Component) {
 	_inherits(App, _React$Component);
 
@@ -51,9 +64,12 @@ var App = (function (_React$Component) {
 		_classCallCheck(this, App);
 
 		_React$Component.call(this);
+		var result = getAppState();
 		this.state = {
-			elements: ['Cras justo odio', 'Dapibus ac facilisis in', 'Morbi leo risus', 'Porta ac consectetur ac', 'Vestibulum at eros']
+			elements: getAppState().elements
 		};
+
+		this._bind('_onChange');
 	}
 
 	App.prototype.componentDidMount = function componentDidMount() {
@@ -95,7 +111,7 @@ var App = (function (_React$Component) {
 	};
 
 	App.prototype._onChange = function _onChange() {
-		this.setState({ number: 0 });
+		this.setState(getAppState());
 	};
 
 	return App;
@@ -289,7 +305,8 @@ var keyMirror = require('react/lib/keyMirror');
 
 module.exports = keyMirror({
 	APP_ADD: null,
-	APP_CLEAR: null
+	APP_CLEAR: null,
+	APP_FETCHDATA: null
 });
 
 },{"react/lib/keyMirror":154}],7:[function(require,module,exports){
@@ -317,18 +334,21 @@ var AppConstants = require('../constants/app.constants');
 var assign = require('object-assign');
 var _ = require('underscore');
 
-var _items = {};
+var _items = ['Cras justo odio', 'Dapibus ac facilisis in', 'Morbi leo risus', 'Porta ac consectetur ac', 'Vestibulum at eros'];
 
 function add(element) {
-	console.log(element);
 	_items.push(element);
 }
 
 function reset() {
-	_items = {};
+	_items = [];
 }
 
 var AppStore = assign({}, EventEmitter.prototype, {
+
+	getElements: function getElements() {
+		return _items;
+	},
 
 	emitChange: function emitChange() {
 		this.emit('change');

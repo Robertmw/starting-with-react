@@ -3,19 +3,22 @@ import {List} from './components/List';
 import {Formular} from './components/Formular';
 import AppStore from './stores/app.store';
 
+function getAppState () {
+	return {
+		elements: AppStore.getElements()
+	}
+}
+
 class App extends React.Component {  
 
 	constructor () {
 		super();
+		var result = getAppState();
 		this.state = {
-			elements: [
-				'Cras justo odio',
-				'Dapibus ac facilisis in',
-				'Morbi leo risus',
-				'Porta ac consectetur ac',
-				'Vestibulum at eros'
-			]
+			elements: getAppState().elements
 		}
+
+		this._bind('_onChange');
 	}
 
 	componentDidMount () {
@@ -43,7 +46,7 @@ class App extends React.Component {
 	}
 
 	_onChange () {
-		this.setState({number: 0});
+		this.setState(getAppState());
 	}
 }
 

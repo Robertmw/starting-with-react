@@ -4,18 +4,27 @@ var AppConstants = require('../constants/app.constants');
 var assign = require('object-assign');
 var _ = require('underscore');
 
-var _items = {};
+var _items = [
+	'Cras justo odio',
+	'Dapibus ac facilisis in',
+	'Morbi leo risus',
+	'Porta ac consectetur ac',
+	'Vestibulum at eros'
+];
 
 function add (element) {
-	console.log(element);
 	_items.push(element);
 }
 
 function reset () {
-	_items = {};
+	_items = [];
 }
 
 var AppStore = assign({}, EventEmitter.prototype, {
+
+	getElements: function () {
+		return _items;
+	},
 
 	emitChange: function() {
 		this.emit('change');
