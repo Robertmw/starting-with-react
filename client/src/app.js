@@ -1,19 +1,21 @@
-import React, { Component, PropTypes } from 'react';
-import {List} from './components/List';
+import React, {Component, PropTypes} from 'react';
+
 import {Formular} from './components/Formular';
+import {CommentsList} from './components/CommentsList';
+
 import AppStore from './stores/app.store';
 
 function getAppState () {
 	return {
-		elements: AppStore.getElements()
+		elements: AppStore.getComments(),
+		totalElements: AppStore.getTotal()
 	}
 }
 
-class App extends React.Component {  
+class CommentBox extends React.Component {
 
 	constructor () {
 		super();
-		var result = getAppState();
 		this.state = {
 			elements: getAppState().elements
 		}
@@ -25,20 +27,13 @@ class App extends React.Component {
 		AppStore.addChangeListener(this._onChange);
 	}
 
-	render() {
-		return ( 
-			<div className="container">
-				<div className="row">
+	render () {
+		return (
+				<div className="comments-box">
 					<Formular />
+					<CommentsList elements={this.state.elements} />
 				</div>
-				<div className="row">
-					<List elements={this.state.elements} title="Results" shouldUpdate={true}/>
-				</div>
-				<div className="row">
-					<List elements={this.state.elements} title="Initial State (won't update)" shouldUpdate={false}/>
-				</div>
-			</div>
-		)
+			);
 	}
 
 	_bind (...methods) {
@@ -48,6 +43,7 @@ class App extends React.Component {
 	_onChange () {
 		this.setState(getAppState());
 	}
+
 }
 
-React.render(<App/>, document.getElementById('app'));
+React.render(<CommentBox />, document.getElementById('app'));

@@ -4,29 +4,32 @@ var AppConstants = require('../constants/app.constants');
 var assign = require('object-assign');
 var _ = require('underscore');
 
-var _items = [
-	'Cras justo odio',
-	'Dapibus ac facilisis in',
-	'Morbi leo risus',
-	'Porta ac consectetur ac',
-	'Vestibulum at eros'
-];
+var _comments = [];
 
-function add (element) {
-	if (element) {
-		_items.push(element);
-		_items = _.uniq(_items);
+function addComment (user, text) {
+	if (user, text) {
+		var comment = {
+			id: (+new Date() + Math.floor(Math.random() * 999999)),
+			user: {
+				username: user,
+				photo: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/malecostume-128.png'
+			},
+			text: text,
+			date: Date().substr(0,10)
+		}
+
+		_comments.push(comment);
 	}
-}
-
-function reset () {
-	_items = [];
 }
 
 var AppStore = assign({}, EventEmitter.prototype, {
 
-	getElements: function () {
-		return _items;
+	getComments: function () {
+		return _comments;
+	},
+
+	getTotal: function () {
+		return _comments.length;
 	},
 
 	emitChange: function() {
@@ -49,11 +52,7 @@ AppDispatcher.register(function(payload) {
 	switch(action.actionType) {
 
 		case AppConstants.APP_ADD:
-			add(action.element);
-			break;
-
-		case AppConstants.APP_CLEAR:
-			reset();
+			addComment(action.user, action.text)
 			break;
 
 		default:

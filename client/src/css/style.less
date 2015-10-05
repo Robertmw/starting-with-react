@@ -13,8 +13,8 @@ html, body {
 	height: auto;
 	padding: 0;
 	margin: 0;
-	background-color: @light;
-	color: #444;
+	background-color: #eee;
+	color: #2C3E50;
 	font-size: 14px;
 	font-family: 'Roboto', sans-serif;
 }
@@ -23,3 +23,110 @@ html, body {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 } 
+
+.container {
+	position: relative;
+	width: 720px;
+	height: auto;
+	padding: 50px 0;
+	margin: 0 auto;
+}
+
+.comments-box {
+	position: relative;
+	width: 100%;
+	height: auto;
+	padding: 10px 20px;
+	-wekbit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #DEDEDE;
+	background-color: white;
+	box-shadow: 0 1px 1px rgba(0,0,0,.2);
+}
+
+.comment-form {
+	position: relative;
+	margin: 25px 0;
+	input, textarea {
+		width: 100%;
+		padding: 10px 5px;
+		margin: 0 0 15px 0;
+		border: 1px solid #DEDEDE;
+		-wekbit-border-radius: 1px;
+		border-radius: 1px;
+		color: #2C3E50;
+		font-size: 14px;
+		font-family: 'Roboto', sans-serif;
+		outline: 0;
+	}
+	button {
+		padding: 10px 15px;
+		border: none;
+		-wekbit-border-radius: 3px;
+		border-radius: 3px;
+		background-color: #3498DB;
+		color: white;
+	}
+}
+
+.list-wrapper {
+	position: relative;
+	.comment-item {
+		position: relative;
+		width: 100%;
+		margin: 20px 0 25px;
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		.profile-photo {
+			float: left;
+			width: 48px;
+			height: 48px;
+			margin: 0 15px;
+			-wekbit-border-radius: 3px;
+			border-radius: 3px;
+			border: 1px solid #DEDEDE;
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.comment-content {
+			float: left;
+			width: 600px;
+			p {
+				margin: 0;
+				color: #2C3E50;
+			}
+			.comment-header {
+				padding: 5px 0;
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+				p {
+					&.name {
+						float: left;
+						color: #E74C3C;
+						font-size: 16px;
+						font-weight: 700;
+					}
+					&.date {
+						float: right;
+						color: #B3B3B3;
+						font-size: 12px;
+					}
+				}
+			}
+			.comment-text {
+				p + p {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}

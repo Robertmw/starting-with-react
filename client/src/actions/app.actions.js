@@ -3,18 +3,13 @@ var AppConstants = require('../constants/app.constants');
 
 var AppActions = {
 
-	addItem: function (newElement) {
+	addComment: function (user, commentText) {
 		AppDispatcher.handleAction({
 			actionType: AppConstants.APP_ADD,
-			element: newElement
+			user: user,
+			text: commentText
 		})
 	},
-
-	clearItems: function () {
-		AppDispatcher.handleAction({
-			actionType: AppConstants.APP_CLEAR
-		})
-	}
 
 };
 

@@ -14,6 +14,7 @@
   "license": "GNU",
   "dependencies": {
     "flux": "^2.1.1",
+    "marked": "^0.3.5",
     "object-assign": "^4.0.1",
     "react": "~0.13.3",
     "underscore": "^1.8.3"
